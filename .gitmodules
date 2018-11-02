@@ -2,3 +2,8 @@
 	path = xmarts/Twilight12
 	url = git@github.com:xmarts/Twilight12.git
 	branch = Prot
+
+[submodule "Submodule"]
+	path = Submodule
+	url = git@github.com:xmarts/Twilight12.git
+	branch = Prot
