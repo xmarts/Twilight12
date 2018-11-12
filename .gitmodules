@@ -1,0 +1,4 @@
+[submodule "xmarts/minutas"]
+	path = xmarts/minutas
+	url = git@github.com:xmarts/minutas.git
+	branch = master
