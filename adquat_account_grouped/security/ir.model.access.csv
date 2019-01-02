@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_adquat_account_move_line_grouped,access_adquat_account_move_line_grouped,model_adquat_account_move_line_grouped,,1,0,0,0
+
+
