@@ -6,7 +6,7 @@ RMA (Return merchandise authorization) for Odoo allows users to manage customer 
 
 Overview
 ========
-RMA (Return merchandise authorization) is a part of the process to receiving a refund, replacement or repair of purchased items by customers from vendors / distributors / retailers.  Many retailers will accept returns from customer under certain conditions which are described in their return policies, based on that either retailer will approve or reject a request for return.  
+RMA (Return merchandise authorization) is a part of the process to receiving a refund, replacement or repair of purchased items by customers from vendors / distributors / retailers.  Many retailers will accept returns from customer under certain conditions which are described in their return policies, based on that either retailer will approve or reject a request for return.  a
 
 Key Features
 ============
