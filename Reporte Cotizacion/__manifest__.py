@@ -9,6 +9,7 @@
     'data': [
 	
 	"views/Sale_signature.xml",
+	"report/sale_order_report.xml",
 	  
     ],
     'qweb': [
@@ -17,4 +18,5 @@
     'test': [],
     'installable': True,
     'auto_install': False,
+    "images":['static/src/img/banco.png','static/src/img/sello.png'],
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_order_multi_lot_added_sale_order_report_document" inherit_id="sale.report_saleorder_document">
+       <xpath expr="/t/t/div/div[6]" position="after">
+
+    <div class="row">
+      <div class="col-3"/>
+      <div class="col-3"/>
+      <div class="col-3">
+        <span>
+          <strong>Signature:</strong>
+          <br/>
+        </span>
+        <span t-field="user_id.signature"/>
+      </div>
+      <div class="col-3"/>
+      <table>
+        <tr>
+            <td>
+                <img  src='/Reporte Cotizacion/static/src/img/banco.png' style="max-height: 45px;"/>
+            </td>
+            <td>
+                <img  src='/Reporte Cotizacion/static/src/img/sello.png' style="max-height: 45px;"/>
+            </td>
+        </tr>
+      </table>
+    </div>
+  
+  </xpath>
+  <xpath expr="/t/t/div/table/thead/tr/th[1]" position="replace">
+            <th>#</th>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[2]" position="replace">
+            <th>NO.Catalogo</th>
+        </xpath>
+     <xpath expr="/t/t/div/table/thead/tr/th[3]" position="replace">
+            <th>Cantidad</th>
+        </xpath>
+         <xpath expr="/t/t/div/table/thead/tr/th[3]" position="after">
+            <th>Descripcion</th>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[7]" position="replace">
+            <th></th>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[1]" position="before">
+    <td>
+      <span t-raw="line_index + 1"/>
+    </td>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[2]" position="before">
+    <td>
+      <span />
+    </td>
+  </xpath>
+</xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[3]" position="replace">
+    <td>
+      <span t-field="line.product_uom_qty"/>
+    </td>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[4]" position="replace">
+    <td>
+      <span t-field="line.name"/>
+    </td>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[5]" position="replace">
+    <td>
+      <span t-field="line.price_unit"/>
+    </td>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/td[6]" position="replace"/>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/thead[1]/tr[1]/th[7]" position="replace"/>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/thead[1]/tr[1]/th[5]" position="attributes">
+    <attribute name="class"/>
+  </xpath>
+    </template>
+</odoo>
