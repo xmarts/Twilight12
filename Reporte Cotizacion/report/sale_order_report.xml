@@ -52,7 +52,6 @@
       <span />
     </td>
   </xpath>
-</xpath>
   <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[3]" position="replace">
     <td>
       <span t-field="line.product_uom_qty"/>
