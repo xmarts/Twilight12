@@ -1,0 +1,26 @@
+{
+    'name': 'Sale Order Multi Lot Selection',
+    'version': '11.0.22.12',
+    'category': 'Sales Management',
+    'summary': 'This module is automatically fetch lot number in stock Picking from sale order line.',
+    'author': 'Vraja Technologies',
+    'price': 11,
+    'currency': 'EUR',
+    'depends': ['sale_stock'],
+    'data': [
+        'views/sale_view.xml',
+        'views/account_invoice.xml',
+        'report/sale_order_report.xml',
+    ],
+    'qweb': [],
+    'css': [],
+    'js': [],
+    'images': [
+        'static/description/so_03.png',
+    ],
+    'demo': [],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+    'license': 'LGPL-3',
+}
