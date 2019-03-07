@@ -85,7 +85,7 @@
     model="sale.order"
     string="Servicio"
     report_type="qweb-pdf"
-    name="your_module_name.report_servicio"
+    name="Reporte Servicio.report_servicio"
     file="report_servicio"
     attachment_use="False"
     
