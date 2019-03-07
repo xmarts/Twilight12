@@ -6,7 +6,7 @@
     'description': """ Sales quotation Report 
     """,
     'author':'Axel indian God',
-    'depends': ['base'],
+    'depends': ['base'.'sale_order_multi_lot_selection_v4'],
     'data': [
 	
 	"reports/report_serv.xml",
