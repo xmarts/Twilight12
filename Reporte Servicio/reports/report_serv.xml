@@ -63,7 +63,7 @@
                             <span t-field="line.product_id.name"/>
                           </td>
                            <td>
-                            <span t-field="line.product_id.descripcion"/>
+                            <span t-field="line.product_id.description"/>
                           </td>
                           <td><span t-field="line.lot_ids.name"/>
                           </td>
