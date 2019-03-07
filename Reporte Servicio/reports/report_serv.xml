@@ -1,0 +1,94 @@
+<odoo>
+<!--REPORTE DE ORDEN DE SERVICIO -->
+<template id="report_servicio">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="l">
+            <t t-call="web.external_layout">
+                <div class="page">
+
+                        <table class="table table-condensed">
+                             <thead>
+                            
+                                    <tr>
+                                        <th>Contacto</th>
+                                        <th >Telefono</th>
+                                        <th>Correo</th>
+                                           <th>Asunto</th>
+                                    </tr>
+                                    <tr>
+                                            <td class="col-6">
+     
+                                           
+                                           <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [ &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+                                            </td>
+                                            <td class="col-6">
+                                           <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+                                       </td>
+                                       <td class="col-6">
+                                           <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [ &quot;email&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+
+                                             </td>
+                                    </tr>
+
+                                    </thead>
+                    </table>
+                    
+                    <table class=" table table-condensed">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>ID</th>
+                          <th>Codigo</th>
+                          <th>servicio</th>
+                          <th>descripcion</th>
+                          <th>NS</th>
+                        </tr>
+
+                      </thead>
+                      <tbody>
+                          <t t-foreach="l.order_line" t-as="line">
+                          <tr>
+                          <td>
+                          <div>
+                            <span t-raw="line_index + 1"/>
+                          </div>
+                          </td>
+                          <td>
+                            <span t-field="line.product_id.id"/>
+                          </td>
+                          <td>
+                          <span t-field="line.product_id.default_code"/>
+                          </td>
+                          <td>
+                            <span t-field="line.product_id.name"/>
+                          </td>
+                           <td>
+                            <span t-field="line.product_id.descripcion"/>
+                          </td>
+                          <td><span t-field="line.lot_ids.name"/>
+                          </td>
+                          </tr>
+				
+                          </t>
+                      </tbody>
+                    </table>
+
+           </div>         
+          </t>
+        </t>
+    </t>
+</template>
+
+
+    <report
+    id="report_servicio"
+    model="sale.order"
+    string="Servicio"
+    report_type="qweb-pdf"
+    name="your_module_name.report_servicio"
+    file="report_servicio"
+    attachment_use="False"
+    
+/>
+
+</odoo>
