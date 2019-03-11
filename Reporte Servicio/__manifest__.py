@@ -10,6 +10,7 @@
     'data': [
 	
 	"reports/report_serv.xml",
+"reports/reporte.xml",
 	  
     ],
     'qweb': [
