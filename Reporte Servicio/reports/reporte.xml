@@ -5,7 +5,7 @@
         <data>
   <xpath expr="/t/t/div/table/thead/tr/th[1]" position="before">
     <th>
-      <span>#</span>
+      <strong><span>#</span></strong>
     </th>
   </xpath>
   <xpath expr="/t/t/div/table/tbody/tr/td[1]" position="before">
@@ -15,87 +15,138 @@
   </xpath>
   <xpath expr="/t/t/div/table/thead/tr/th[1]" position="after">
     <th>
-      <span>Código de barras</span>
+     <strong> <span>Código</span></strong>
     </th>
   </xpath>
   <xpath expr="/t/t/div/table/tbody/tr/td[1]" position="after">
     <td>
-      <span t-field="line.product_id.barcode"/>
+      <span t-field="line.product_id.default_code"/>
     </td>
   </xpath>
    <xpath expr="/t/t/div/div[2]" position="replace">
-    <table class="table">
-      <tr>
-          <td class="col-6">
-      <strong>Dirección de Envío</strong>
-               <div t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;,"/>
-              
-
-
-
-            <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/>
-
-            </p>
-            </td>
-            <td>
-            </td>
-
-            <td class="col-6">
-            <strong>Dirección de Envío</strong>
-               
-                    <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
-             
+        <div class="row">
+        <div class="col-4">
         
-            </td>
-        </tr>
-       </table>      
+            <span >
+             <strong>Dirección del Proveedor</strong>
+               <div t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;}"/>
+            </span>
+            </div>
+            <div class="col-4"/>
+            <div class="col-4">
+             <span>
+                 <strong>Dirección de Envío</strong>
+               
+                    <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+            </span>
+            </div>
+            </div>
      </xpath>
  <xpath expr="/t/t/div/div[2]" position="after">
-<table class="table">
+<table  class="table table-sm o_main_table">
+    <tr>
+        <th > <strong>Fecha</strong></th>
+        <th><strong>Solicitante</strong></th>
+        <th class="text-center"><strong>Comprador</strong></th>
+        <th class="text-center"> <strong>Condiciones</strong></th>
+        <th class="text-center"> <strong>Fecha</strong></th>
+        <th class="text-center"><strong>Moneda</strong></th>
+    </tr>
 <tr>
-
-<td> 	
-	<div t-if="o.name" class="col-6">
-                    <strong>Fecha:</strong>
-                    <p t-field="o.date_order"/>
-                </div>
-</td>
-<td> 	
-	<div t-if="o.name" class="col-6">
-                    <strong>Comprador:</strong>
-                    <p t-field="o.create_uid"/>
-                </div>
-</td>
-<td> 	
-	<div t-if="o.name" class="col-6">
-                    <strong>Ref. de nuestra orden:</strong>
-                    <p t-field="o.name"/>
-                </div>
+<td>  
+                    <span t-field="o.date_order"  t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
 </td>
 <td>  
-  <div t-if="o.name" class="col-6">
-                    <strong>Condiciones:</strong>
-                    <p t-field="o.payment_term_id"/>
-                </div>
+              <span t-field="o.create_uid"/>
+</td>
+<td>  
+                    <span t-field="o.create_uid"  />
+</td>
+<td>  
+                    <span t-field="o.payment_term_id"/>
 </td>     
 <td>  
-  <div t-if="o.name" class="col-6">
-                    <strong>Fecha:</strong>
-                    <p t-field="o.date_planned"/>
-                </div>
-   
+                    <span t-field="o.date_planned" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
 </td>
 <td>  
-  <div t-if="o.name" class="col-6">
-                    <strong>Moneda:</strong>
-                    <p t-field="o.currency_id"/>
-                </div>
-   
+                    <span t-field="o.currency_id"/>
 </td>
 </tr>
-</table><strong>Notas:</strong>
-      <p t-field="o.notes"/>
+</table>
+<strong>Comentarios:</strong>
+      <span t-field="o.notes"/>
  </xpath>
+     <xpath expr="/t/t/div/table[2]" position="after">
+    
+  </xpath>
+    <xpath expr="/t[1]/t[1]/t[2]/div[1]" position="replace"/>
+    <xpath expr="/t[1]/t[1]/div[1]/div[3]" position="replace">
+
+    <div id="total" class="row justify-content-end">
+       
+        <div class="col-8">
+         <span >
+             <strong>Importante</strong> <br/>
+             1.-Notifique inmediatamente si no puede cumplir con las condiciones de este pedido <br/>
+             2.-Envie copia de su factura y confirmacion de la recepcion del bien o servicio a pagos@twilight.mx
+                </span>
+        </div>
+                <div class="col-4">
+                    <table class="table table-sm">
+                        <tr class="border-black">
+                            <td><strong>Subtotal</strong></td>
+                            <td class="text-right">
+                                <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Taxes</td>
+                            <td class="text-right">
+                                <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            </td>
+                        </tr>
+                        <tr class="border-black o_total">
+                            <td><strong>Total</strong></td>
+                            <td class="text-right">
+                                <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </xpath>
+    <xpath expr="/t[1]/t[1]/div[1]/div[3]" position="after">
+      <t t-foreach="o.order_line" t-as="lines">
+        <t t-if="lines_size&lt;=3">
+                   <br/><br/><br/>
+            </t> 
+             </t> 
+            <div  class="row justify-content-end">
+                
+           
+            <div class="col-4">
+            <table class="table table-condensed" style="border: 3px solid #875A7B" >
+                <tr>
+                    <th style="border: 1px solid #875A7B; text-align: center" >
+                        Autorización
+                    </th>
+                 
+                </tr>
+                  
+                    <tr style="font-size: 10px;border-top: 0px; height: 90px ">
+                        <td style="text-align: center; background-color: #f7f4f6">
+                            <br/><br/><br/><br/>
+                            Nombre y Puesto
+                        </td>
+                    </tr>
+            </table>
+            </div>
+             </div>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[2]/thead[1]/tr[1]/th[4]" position="replace"/>
+<xpath expr="/t[1]/t[1]/div[1]/table[2]/tbody[1]/tr[1]/td[4]" position="replace"/>
+<xpath expr="/t[1]/t[1]/div[1]/table[2]/tbody[1]/tr[1]/td[4]" position="replace"/>
+<xpath expr="/t[1]/t[1]/div[1]/table[2]/thead[1]/tr[1]/th[4]" position="replace"/>
 
 	</data>
     </template>

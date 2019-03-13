@@ -1,0 +1,103 @@
+
+<!--REPORTE DE ORDEN DE COMPRA -->
+<odoo>
+    <template id="report_purchaseorder_inherit" inherit_id="purchase.report_purchaseorder_document">
+        <data>
+  <xpath expr="/t/t/div/table/thead/tr/th[1]" position="before">
+    <th>
+      <span>#</span>
+    </th>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/tr/td[1]" position="before">
+    <td>
+      <span t-raw="line_index + 1"/>
+    </td>
+  </xpath>
+  <xpath expr="/t/t/div/table/thead/tr/th[1]" position="after">
+    <th>
+      <span>Código de barras</span>
+    </th>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/tr/td[1]" position="after">
+    <td>
+      <span t-field="line.product_id.barcode"/>
+    </td>
+  </xpath>
+   <xpath expr="/t/t/div/div[2]" position="replace">
+    <table class="table">
+      <tr>
+          <td class="col-6">
+      <strong>Dirección de Envío</strong>
+               <div t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;,"/>
+              
+
+
+
+            <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/>
+
+            </p>
+            </td>
+            <td>
+            </td>
+
+            <td class="col-6">
+            <strong>Dirección de Envío</strong>
+               
+                    <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+             
+        
+            </td>
+        </tr>
+       </table>      
+     </xpath>
+ <xpath expr="/t/t/div/div[2]" position="after">
+<table class="table">
+<tr>
+
+<td> 	
+	<div t-if="o.name" class="col-6">
+                    <strong>Fecha:</strong>
+                    <p t-field="o.date_order"/>
+                </div>
+</td>
+<td> 	
+	<div t-if="o.name" class="col-6">
+                    <strong>Comprador:</strong>
+                    <p t-field="o.create_uid"/>
+                </div>
+</td>
+<td> 	
+	<div t-if="o.name" class="col-6">
+                    <strong>Ref. de nuestra orden:</strong>
+                    <p t-field="o.name"/>
+                </div>
+</td>
+<td>  
+  <div t-if="o.name" class="col-6">
+                    <strong>Condiciones:</strong>
+                    <p t-field="o.payment_term_id"/>
+                </div>
+</td>     
+<td>  
+  <div t-if="o.name" class="col-6">
+                    <strong>Fecha:</strong>
+                    <p t-field="o.date_planned"/>
+                </div>
+   
+</td>
+<td>  
+  <div t-if="o.name" class="col-6">
+                    <strong>Moneda:</strong>
+                    <p t-field="o.currency_id"/>
+                </div>
+   
+</td>
+</tr>
+</table><strong>Notas:</strong>
+      <p t-field="o.notes"/>
+ </xpath>
+
+	</data>
+    </template>
+
+</odoo>	
