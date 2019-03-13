@@ -25,7 +25,7 @@ class AccountFollowupReport(models.AbstractModel):
                    {'name': _('Total Due'), 'class': 'number o_price_total', 'style': 'text-align:right; white-space:nowrap;'}
                   ]
         if self.env.context.get('print_mode'):
-            headers = headers[0:9]  # Remove the 'Expected Date' and 'Excluded' columns
+            headers = headers[:5] + headers[7:]  # Remove the 'Expected Date' and 'Excluded' columns
         return headers
 
     def _get_lines(self, options, line_id=None):
@@ -75,8 +75,8 @@ class AccountFollowupReport(models.AbstractModel):
                 columns = [
                     format_date(self.env, aml.date, lang_code=lang_code),
                     date_due,
-                    aml.invoice_id.Comentarioscob,
-                    aml.invoice_id.Orden_de_compra,
+                    date_due,
+                    date_due,
                     aml.invoice_id.origin,
                     move_line_name,
                     expected_pay_date + ' ' + (aml.internal_note or ''),
@@ -84,7 +84,7 @@ class AccountFollowupReport(models.AbstractModel):
                     amount,
                 ]
                 if self.env.context.get('print_mode'):
-                    columns = columns[0:9]
+                    columns = columns[:3] + columns[5:]
                 lines.append({
                     'id': aml.id,
                     'invoice_id': aml.invoice_id.id,
