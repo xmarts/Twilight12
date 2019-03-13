@@ -84,7 +84,7 @@ class AccountFollowupReport(models.AbstractModel):
                     amount,
                 ]
                 if self.env.context.get('print_mode'):
-                    columns = columns[:5] + columns[7:]
+                    columns = columns[:4] + columns[6:]
                 lines.append({
                     'id': aml.id,
                     'invoice_id': aml.invoice_id.id,
