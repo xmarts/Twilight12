@@ -75,7 +75,6 @@ class AccountFollowupReport(models.AbstractModel):
                     format_date(self.env, aml.date, lang_code=lang_code),
                     date_due,
                     aml.invoice_id.Comentarioscob,
-                    aml.invoice_id.Orden_de_compra,
                     aml.invoice_id.origin,
                     move_line_name,
                     expected_pay_date + ' ' + (aml.internal_note or ''),
