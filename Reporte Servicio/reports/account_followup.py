@@ -17,7 +17,6 @@ class AccountFollowupReport(models.AbstractModel):
                    {'name': _('Date'), 'class': 'date', 'style': 'text-align:center; white-space:nowrap;'},
                    {'name': _('Due Date'), 'class': 'date', 'style': 'text-align:center; white-space:nowrap;'},
                    {'name': _('Comentario'), 'style': 'text-align:center; white-space:nowrap;'},
-                   {'name': _('Orden de Compra'), 'style': 'text-align:center; white-space:nowrap;'},
                    {'name': _('Source Document'), 'style': 'text-align:center; white-space:nowrap;'},
                    {'name': _('Communication'), 'style': 'text-align:right; white-space:nowrap;'},
                    {'name': _('Expected Date'), 'class': 'date', 'style': 'white-space:nowrap;'},
@@ -25,7 +24,7 @@ class AccountFollowupReport(models.AbstractModel):
                    {'name': _('Total Due'), 'class': 'number o_price_total', 'style': 'text-align:right; white-space:nowrap;'}
                   ]
         if self.env.context.get('print_mode'):
-            headers = headers[:5] + headers[7:]  # Remove the 'Expected Date' and 'Excluded' columns
+            headers = headers[:6] + headers[8:]  # Remove the 'Expected Date' and 'Excluded' columns
         return headers
 
     def _get_lines(self, options, line_id=None):
@@ -75,8 +74,8 @@ class AccountFollowupReport(models.AbstractModel):
                 columns = [
                     format_date(self.env, aml.date, lang_code=lang_code),
                     date_due,
-                    date_due,
-                    date_due,
+                    aml.invoice_id.Comentarioscob,
+                    aml.invoice_id.Orden_de_compra,
                     aml.invoice_id.origin,
                     move_line_name,
                     expected_pay_date + ' ' + (aml.internal_note or ''),
@@ -84,7 +83,7 @@ class AccountFollowupReport(models.AbstractModel):
                     amount,
                 ]
                 if self.env.context.get('print_mode'):
-                    columns = columns[:3] + columns[5:]
+                    columns = columns[:4] + columns[6:]
                 lines.append({
                     'id': aml.id,
                     'invoice_id': aml.invoice_id.id,
