@@ -2,7 +2,7 @@
   <data>
 <record model="ir.ui.view" id="view_id">
     <field name="name">View lista</field>
-    <field name="model">xmarts_Lista.lista</field>
+    <field name="model">xmartslista</field>
     <field name="priority" eval="16"/>
     <field name="arch" type="xml">
     </field>
