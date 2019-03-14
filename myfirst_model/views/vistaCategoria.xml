@@ -63,7 +63,7 @@
 
     <record id="custom_action" model="ir.actions.act_window">
         <field name="name">Child Menu</field>
-        <field name="res_model">Categorias</field>
+        <field name="res_model">categorias</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
