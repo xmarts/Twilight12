@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "xmarts_cat",
+    'name': "xmarts_categoria",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Modelo para many o one en sale order""",
 
     'description': """
-        Long description of module's purpose
+
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Axel",
+    'website': "",
 
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
-    # for the full list
+
     'category': 'Uncategorized',
     'version': '0.1',
 
@@ -26,6 +23,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/vistaCategoria.xml',
+	'views/sale_order_line_xmarts.xml',
        
     ],
     # only loaded in demonstration mode
