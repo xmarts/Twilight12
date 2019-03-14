@@ -73,6 +73,6 @@
         </field>
     </record>
     <!--   Create Top Menu  -->
-    <menuitem name="Categorias" id="custom_top_menu" parent="Inventory" action="custom_action" sequence="6"/>
+    <menuitem name="Categorias" id="custom_top_menu" parent="stock.menu_stock_root" action="custom_action" sequence="6"/>
 
 </odoo>
