@@ -51,7 +51,7 @@
             <form>
              <group>
                 <field name="name" string="Name" placeholder="Ex name : Turki" style=" max-width: 1150px;  width: 500px"/>
-                <field name="calib_id"   string="numero" style="max-width: 1150px;  width: 500px" />
+                <field name="calib_id"   string="calib_id" style="max-width: 1150px;  width: 500px" />
              </group>
             </form>
         </field>
@@ -70,7 +70,7 @@
             </p>
         </field>
     </record>
-    <!--   Create Top Menu  -->
+    <!--    -->
     <menuitem name="Categorias" id="custom_top_menu" parent="stock.menu_stock_root" sequence="6"/>
     <menuitem name="Categorias" id="custom_top_mene" parent="custom_top_menu" action="custom_action" sequence="6"/>
     
