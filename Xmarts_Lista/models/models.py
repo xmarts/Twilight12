@@ -2,8 +2,9 @@
 
 from odoo import models, fields, api
 
-class XmartsLista(models.Model):
+class Xmarts_Lista(models.Model):
 	_name = 'xmarts.Lista'
+
 	name = fields.Char()
 	value = fields.Integer()
 	description = fields.Text()
