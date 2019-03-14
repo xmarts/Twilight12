@@ -10,7 +10,8 @@
         <!-- find field description and add the field
              idea_ids after it -->
 	<xpath expr="//field[@name='order_line']/tree//field[@name='name']" position="after">
-    <field name="category"/>        
+    	<field name="category"/>
+	</xpath>        
     </field>
 </record>
 
