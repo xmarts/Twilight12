@@ -14,8 +14,15 @@ class AccountFollowupReport(models.AbstractModel):
         Return the name of the columns of the follow-ups report
         """
         headers = [{},
-             e': _('Total Due'), 'class': 'number o_price_total', 'style': 'text-align:right; white-space:nowrap;'}
-                  ]
+            {'name': _('Date'), 'class': 'date', 'style': 'text-align:center; white-space:nowrap;'},
+            {'name': _('Due Date'), 'class': 'date', 'style': 'text-align:center; white-space:nowrap;'},
+            {'name': _('Nuevo'), 'style': 'text-align:center; white-space:nowrap;'},
+            {'name': _('Source Document'), 'style': 'text-align:center; white-space:nowrap;'},
+            {'name': _('Communication'), 'style': 'text-align:right; white-space:nowrap;'},
+            {'name': _('Expected Date'), 'class': 'date', 'style': 'white-space:nowrap;'},
+            {'name': _('Excluded'), 'class': 'date', 'style': 'white-space:nowrap;'},
+            {'name': _('Total Due'), 'class': 'number o_price_total', 'style': 'text-align:right; white-space:nowrap;'}
+                ]
         if self.env.context.get('print_mode'):
             headers = headers[:5] + headers[7:]  # Remove the 'Expected Date' and 'Excluded' columns
         return headers

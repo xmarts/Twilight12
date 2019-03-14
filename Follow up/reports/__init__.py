@@ -1,2 +1,2 @@
-from . import account_followup
+from . import customer_followup_report
 
