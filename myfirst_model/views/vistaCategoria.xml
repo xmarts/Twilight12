@@ -5,7 +5,7 @@
     <!-- Tree View of Customer-->
     <record id="customer_tree_view" model="ir.ui.view">
         <field name="name">customer.tree.view</field>
-        <field name="model">Categorias</field>
+        <field name="model">categorias</field>
         <field name="arch" type="xml">
             <tree string="customer Information">
                 <field name="name"/>
@@ -47,7 +47,7 @@
     <!-- Form View Of Customer  -->
     <record id="customer_form_view" model="ir.ui.view">
         <field name="name">customer.form.view</field>
-        <field name="model">Categorias</field>
+        <field name="model">categorias</field>
         <field name="arch" type="xml">
             <form>
              <group>

@@ -25,8 +25,8 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/customer.xml',
-        'views/first.xml',
+        'views/vistaCategoria.xml',
+       
     ],
     # only loaded in demonstration mode
     'demo': [
