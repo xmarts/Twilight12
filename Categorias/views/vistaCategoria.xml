@@ -50,7 +50,7 @@
         <field name="arch" type="xml">
             <form>
              <group>
-                <field name="name" string="Name" placeholder="Ex name : Turki" style=" max-width: 1150px;  width: 500px"/>
+                <field name="name" string="Name" placeholder="Ex name : Termómetros" style=" max-width: 1150px;  width: 500px"/>
                 <field name="calib_id"   string="calib_id" style="max-width: 1150px;  width: 500px" />
              </group>
             </form>
