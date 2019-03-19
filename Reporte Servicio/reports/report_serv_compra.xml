@@ -1,6 +1,6 @@
 <odoo>
 <!--REPORTE DE ORDEN DE SERVICIO -->
-<template id="report_servicio">
+<template id="report_servicio_compra">
     <t t-call="web.html_container">
         <t t-foreach="docs" t-as="l">
             <t t-call="web.external_layout">
@@ -19,13 +19,13 @@
                                             <td class="col-6">
      
                                            
-                                           <div t-field="user_id.name" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [ &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+                                           <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [ &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
                                             </td>
                                             <td class="col-6">
                                            <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
                                        </td>
                                        <td class="col-6">
-                                           <div t-field="user_id.login" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [ &quot;email&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+                                           <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [ &quot;email&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
 
                                              </td>
                                     </tr>
@@ -81,12 +81,12 @@
 
 
     <report
-    id="report_servicio"
-    model="sale.order"
+    id="report_servicio_compra"
+    model="purchase.order"
     string="Servicio"
     report_type="qweb-pdf"
-    name="Reporte Servicio.report_servicio"
-    file="report_servicio"
+    name="Reporte Servicio.report_servicio_compra"
+    file="report_servicio_compra"
     attachment_use="False"
     
 />
