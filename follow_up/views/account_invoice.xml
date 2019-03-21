@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="get_odoo_studio_field_from_sale_order_account_invoice_form" model="ir.ui.view">
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='team_id']" position="after">
+					<field name="Comentarioscob" />
+					<field name="Orden_de_compra" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>
