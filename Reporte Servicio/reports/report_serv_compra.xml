@@ -1,5 +1,5 @@
 <odoo>
-<!--REPORTE DE ORDEN DE SERVICIO -->
+<!--REPORTE DE ORDEN DE SERVICIO compra -->
 <template id="report_servicio_compra">
     <t t-call="web.html_container">
         <t t-foreach="docs" t-as="l">
