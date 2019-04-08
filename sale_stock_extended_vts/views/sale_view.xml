@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="add_available_reserved_qty_sale_order_line_view" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+			<xpath
+				expr="//notebook/page/field[@name='order_line']/tree/field[@name='qty_delivered']"
+				position="before">
+				<field name="qty_available"/>
+				<field name="reserved_product_qty" />
+			</xpath>
+	</field>
+    </record>
+</odoo>
