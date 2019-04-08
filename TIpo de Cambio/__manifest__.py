@@ -5,10 +5,10 @@
     'description': """ get data from currency_id 
     """,
     'author':'Axel indian God',
-    'depends': ['account','],
+    'depends': ['account','sale'],
     'data': [
 
-	  "views/
+	  "views/sale_order_view",
     ],
     'qweb': [
         ],
