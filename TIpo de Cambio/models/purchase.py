@@ -9,7 +9,7 @@ class PurchaseOrder(models.Model):
     def CalcularCambio(self):
         for record in self:
         	if (record.tasadecambio!=0):
-        		record['cambio'] = 1/record.tasadecambio
+        		record['cambiobill'] = 1/record.tasadecambio
 
     @api.multi
     def _prepare_invoice(self):
