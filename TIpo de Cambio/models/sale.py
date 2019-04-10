@@ -1,13 +1,21 @@
 from odoo import api, fields, models, _
 
-class saleCambio(models.Model):
+class SaleOrder(models.Model):
     _inherit = 'sale.order'
-    TasadeCambio = fields.Float(related='currency_id.rate_ids.rate')
-    Cambio = fields.Float(string='Tipo de Cambio',digits=(12,3),compute='CalcularCambio')
+    tasadecambio = fields.Float(related='currency_id.rate_ids.rate')
+    cambio = fields.Float(string='Tipo de Cambio',digits=(12,3),compute='CalcularCambio',store=True)
    
-    @api.onchange('pricelist_id','TasadeCambio')
+    @api.depends('tasadecambio')
     def CalcularCambio(self):
         for record in self:
-                record['Cambio'] = 1/record.TasadeCambio
+        	if (record.tasadecambio!=0):
+        		record['cambio'] = 1/record.tasadecambio
+    @api.multi
+    def _prepare_invoice(self):
+        res = super(SaleOrder, self)._prepare_invoice()
+        res.update({
+            'cambio':self.cambio,
+            })
+        return res
 
 
