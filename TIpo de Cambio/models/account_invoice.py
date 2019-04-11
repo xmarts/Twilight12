@@ -5,7 +5,7 @@ class InvoiceCambio(models.Model):
     tasadecambio = fields.Float(related='currency_id.rate_ids.rate')
     cambio = fields.Float(string='Tipo de Cambio',digits=(12,3),compute='CalcularCambio',store=True)
    
-    @api.depends('tasadecambio')
+    @api.depends('currency_id')
     def CalcularCambio(self):
         for record in self:
         	if (record.cambio==0 and record.tasadecambio !=0):
