@@ -9,6 +9,6 @@ class PurchaseOrder(models.Model):
     @api.depends('currency_id')
     def CalcularCambio(self):
         for record in self:
-        	if (record.tasadecambio!=0 and record.cambiobill==0):
+        	if (record.tasadecambio!=0 and record.state!="purchase"):
         		record['cambiobill'] = 1/record.tasadecambio
 
