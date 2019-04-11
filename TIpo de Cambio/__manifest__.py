@@ -9,6 +9,8 @@
     'data': [
 	'views/sale_order_view.xml',
 	'views/invoice_view.xml',
+	'views/invoice_view_bill.xml',
+	'views/purchase_order_view .xml',
 	  
     ],
     'qweb': [
