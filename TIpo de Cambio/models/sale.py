@@ -16,6 +16,6 @@ class SaleOrder(models.Model):
         res.update({
             'cambio':self.cambio,
             })
-        return r
+        return 
 
 
