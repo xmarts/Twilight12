@@ -8,7 +8,7 @@ class InvoiceCambio(models.Model):
     @api.depends('currency_id')
     def CalcularCambio(self):
         for record in self:
-        	if (record.cambio==0 and record.tasadecambio !=0):
+        	if (record.tasadecambio !=0):
         		record['cambio'] = 1/record.tasadecambio
         	else:
         		pass
