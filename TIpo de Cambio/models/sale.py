@@ -10,7 +10,7 @@ class SaleOrder(models.Model):
     @api.depends('currency_id')
     def CalcularCambio(self):
         for record in self:
-        	if (record.tasadecambio!=0 and record.change==record.cambio):
+        	if (record.tasadecambio!=0):
         		record['cambio'] = 1/record.tasadecambio
     @api.multi
     def _prepare_invoice(self):
