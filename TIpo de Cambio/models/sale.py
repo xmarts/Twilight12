@@ -8,7 +8,7 @@ class SaleOrder(models.Model):
     @api.onchange('cambio')
     def cambioextra(self):
         for record in self:
-            if (record.cambio!=(1/record.tasadecambio))
+            if (record.cambio!=(1/record.tasadecambio)):
                 record['change'] = record.cambio
 
 
