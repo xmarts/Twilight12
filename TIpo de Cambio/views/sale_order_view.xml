@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='payment_term_id']" position="after">
     <field name="cambio" force_save="1"/>
+    <field name="change" force_save="1"/>
   </xpath>
         </field>
     </record>
