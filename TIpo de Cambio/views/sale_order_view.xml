@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='payment_term_id']" position="after">
-    <field name="cambio" force_save='true'/>
+    <field name="cambio" force_save="1"/>
   </xpath>
         </field>
     </record>
