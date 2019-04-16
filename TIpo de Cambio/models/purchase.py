@@ -12,11 +12,6 @@ class PurchaseOrder(models.Model):
         	if (record.tasadecambio!=0 and record.state!="purchase"):
         		record['cambiobill'] = 1/record.tasadecambio
 
-  @api.model
-    def create(self, values):
-        """Override default Odoo create function and extend."""
-        # Do your custom logic here
-        return super(ResPartner, self).create(values)
 
 
 
