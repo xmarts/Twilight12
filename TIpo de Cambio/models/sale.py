@@ -25,16 +25,20 @@ class SaleOrder(models.Model):
         return res
     @api.model
     def create(self, values):
-        dicts=self.env['res.currency'].search_read([],[('rate')])
+        dicts=self.env['res.currency'].sudo().search_read([],[('rate')])
         for record in self:
             for item in dicts:
                 if item['id'] == record.currency_id.id:
                     tasa=float(item["rate"])
                     x=1/tasa
-                    record[('is_created_change2')]=x
                     y=float(record.change)
-                    record[("aux_change")]=y
-                    record[("change")]=x
+
+				    values = {
+                        'is_created_change2': move.id,
+                        'aux_change': move.product_id.id,
+                        'change': move.product_uom.id,
+                           
+                                }
         return super(SaleOrder, self).create(values) 
 
 
