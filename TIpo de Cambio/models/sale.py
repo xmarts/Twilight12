@@ -23,13 +23,13 @@ class SaleOrder(models.Model):
         return res
     @api.model
     def create(self, values):
-        dicts=env['res.currency'].search_read([],[('rate')])
-        for record in records:
+        dicts=self.env['res.currency'].search_read([],[('rate')])
+        for record in self:
             for item in dicts:
                 if item['id'] == record.currency_id.id:
                     tasa=float(item["rate"])
                     x=1/tasa
-        for record in records:
+        for record in self:
             y=float(record.change)
             record[("aux_change")]=y
             record[("change")]=x
