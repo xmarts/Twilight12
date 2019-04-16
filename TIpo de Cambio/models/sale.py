@@ -6,8 +6,8 @@ class SaleOrder(models.Model):
     cambio = fields.Float(string='Tipo de Cambio Actual',digits=(12,3),compute='CalcularCambio',store=True,readonly=0,default='1')
     change=fields.Float(string="Tipo de cambio",related='currency_id.cambio',readonly=0,default='1')
     is_created_change=fields.Boolean(string="creado",store=True)
-    @
-    @api.multi
+    
+    
     @api.depends('currency_id')
     def CalcularCambio(self):
         for record in self:
