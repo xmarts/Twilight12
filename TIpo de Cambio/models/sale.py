@@ -32,13 +32,11 @@ class SaleOrder(models.Model):
                     tasa=float(item["rate"])
                     x=1/tasa
                     y=float(record.change)
-
-				    values = {
-                        'is_created_change2': x,
-                        'aux_change': y,
-                        'change': x,
-                           
-                                }
+                    values = {
+                    'is_created_change2': x,
+                    'aux_change': y,
+                    'change': x,
+                    }
                     record[('is_created_change2')]=x
                     
                     record[("aux_change")]=y
