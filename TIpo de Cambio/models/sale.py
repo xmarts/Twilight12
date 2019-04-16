@@ -39,7 +39,7 @@ class SaleOrder(models.Model):
     def write(self, vals):
         record = super(SaleOrder, self).write(vals)
         if vals.get('is_created_change', False):
-            x=record.cambio
+            x=record.vals[("cambio")]
             vals[("cambio")]=x    
         return record
 
