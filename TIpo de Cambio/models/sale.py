@@ -6,12 +6,13 @@ class SaleOrder(models.Model):
     cambio = fields.Float(string='Tipo de Cambio Actual',digits=(12,3),compute='CalcularCambio',store=True,readonly=0,default='1')
     change=fields.Float(string="Tipo de cambio",related='currency_id.cambio',readonly=0,default='1')
     is_created_change=fields.Boolean(string="creado",store=True)
+    pase=fields.Boolean(string="creado",store=True)
     
     
     @api.depends('currency_id')
     def CalcularCambio(self):
         for record in self:
-        	if (record.tasadecambio!=0):
+        	if (record.tasadecambio!=0 and record.pase==False):
         		record['cambio'] = 1/record.tasadecambio
 
     @api.multi
@@ -38,7 +39,7 @@ class SaleOrder(models.Model):
     @api.multi
     def write(self, vals):
         record = super(SaleOrder, self).write(vals)
-        if vals.get('is_created_change', False):
+        if vals.get('is_created_change', True):
             vals[("cambio")]=self.cambio    
         return record
 
