@@ -33,7 +33,7 @@ class SaleOrder(models.Model):
                 x=1/tasa
                 y=float(record.change)
                 record[('is_created_change2')]=x
-                record[("aux_change")]=y
+                record[("cambio")]=y
                 record[("change")]=x
                     
         return record
