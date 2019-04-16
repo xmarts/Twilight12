@@ -20,6 +20,19 @@ class SaleOrder(models.Model):
         res.update({
             'cambio':self.cambio,
             })
-        return res 
+        return res
+    @api.model
+    def create(self, values):
+        dicts=env['res.currency'].search_read([],[('rate')])
+        for record in records:
+            for item in dicts:
+                if item['id'] == record.currency_id.id:
+                    tasa=float(item["rate"])
+                    x=1/tasa
+        for record in records:
+            y=float(record.change)
+            record[("aux_change")]=y
+            record[("change")]=x
+        return super(ResPartner, self).create(values) 
 
 
