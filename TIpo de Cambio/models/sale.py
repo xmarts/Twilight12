@@ -3,8 +3,10 @@ from odoo import api, fields, models, _
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
     tasadecambio = fields.Float(related='currency_id.rate_ids.rate')
-    cambio = fields.Float(string='Tipo de Cambio',digits=(12,3),compute='CalcularCambio',store=True,readonly=0,default='1')
-    change=fields.Float(string="Cambio Actual",related='currency_id.cambio',readonly=0,default='1')
+    cambio = fields.Float(string='Tipo de Cambio Actual',digits=(12,3),compute='CalcularCambio',store=True,readonly=0,default='1')
+    change=fields.Float(string="Tipo de cambio",related='currency_id.cambio',readonly=0,default='1')
+    aux_change= fields.Float(string='Tipo de Cambio',digits=(12,3),store=True,readonly=0)
+    is_created_change=fields.Boolean(string="creado",store=True)
    
 
     @api.depends('currency_id')

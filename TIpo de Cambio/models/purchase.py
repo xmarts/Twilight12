@@ -11,12 +11,6 @@ class PurchaseOrder(models.Model):
         for record in self:
         	if (record.tasadecambio!=0 and record.state!="purchase"):
         		record['cambiobill'] = 1/record.tasadecambio
-    @api.multi
-    def _prepare_invoice(self):
-        res = super(PurchaseOrder, self)._prepare_invoice()
-        res.update({
-            'cambiobill':self.cambiobill,
-            })
-        return res
+
 
 

@@ -6,8 +6,9 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='payment_term_id']" position="after">
-    <field name="cambio" force_save="1"/>
-    <field name="change" force_save="1"/>
+    <field name="cambio" force_save="1" attrs="{'invisible': [(is_created_change','=',False)]}"/>
+    <field name="change" force_save="1" attrs="{'invisible': [('is_created_change','=',True)]}"/>
+    <field name="is_created_change" force_save="1" invisible="1"/>
   </xpath>
         </field>
     </record>
