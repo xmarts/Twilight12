@@ -18,7 +18,7 @@ class SaleOrder(models.Model):
     def _prepare_invoice(self):
         res = super(SaleOrder, self)._prepare_invoice()
         res.update({
-            'cambio':self.cambio,
+            'cambiosale':self.cambio,
             })
         return 
 
