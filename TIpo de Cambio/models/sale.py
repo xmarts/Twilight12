@@ -7,6 +7,8 @@ class SaleOrder(models.Model):
     change=fields.Float(string="Tipo de cambio",related='currency_id.cambio',readonly=0,default='1')
     aux_change= fields.Float(string='Tipo de Cambio',digits=(12,3),store=True,readonly=0)
     is_created_change=fields.Boolean(string="creado",store=True)
+    is_created_change2=fields.Char(string="creado",store=True)
+
    
 
     @api.depends('currency_id')
@@ -29,10 +31,10 @@ class SaleOrder(models.Model):
                 if item['id'] == record.currency_id.id:
                     tasa=float(item["rate"])
                     x=1/tasa
-        for record in self:
-            y=float(record.change)
-            record[("aux_change")]=y
-            record[("change")]=x
+                    record[('is_created_change2')]=x
+                    y=float(record.change)
+                    record[("aux_change")]=y
+                    record[("change")]=x
         return super(SaleOrder, self).create(values) 
 
 
