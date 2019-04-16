@@ -34,11 +34,15 @@ class SaleOrder(models.Model):
                     y=float(record.change)
 
 				    values = {
-                        'is_created_change2': move.id,
-                        'aux_change': move.product_id.id,
-                        'change': move.product_uom.id,
+                        'is_created_change2': x,
+                        'aux_change': y,
+                        'change': x,
                            
                                 }
+                    record[('is_created_change2')]=x
+                    
+                    record[("aux_change")]=y
+                    record[("change")]=x
         return super(SaleOrder, self).create(values) 
 
 
