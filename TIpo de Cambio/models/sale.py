@@ -36,11 +36,11 @@ class SaleOrder(models.Model):
                     
         return record
     @api.multi
-    def write(self, values):
-        record = super(SaleOrder, self).write(values)
-        if record.is_created_change==True:
+    def write(self, vals):
+        record = super(SaleOrder, self).write(vals)
+        if vals.get('is_created_change', False):
             x=record.cambio
-            record[("cambio")]=x    
+            vals[("cambio")]=x    
         return record
 
 
