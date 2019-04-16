@@ -33,6 +33,6 @@ class SaleOrder(models.Model):
             y=float(record.change)
             record[("aux_change")]=y
             record[("change")]=x
-        return super(ResPartner, self).create(values) 
+        return super(SaleOrder, self).create(values) 
 
 
