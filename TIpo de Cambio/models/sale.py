@@ -25,19 +25,17 @@ class SaleOrder(models.Model):
         return res
     @api.model
     def create(self, values):
-        res = super(SaleOrder, self).create(values)
+        record = super(SaleOrder, self).create(values)
         dicts=self.env['res.currency'].sudo().search_read([],[('rate')])
-        for record in self:
             for item in dicts:
                 if item['id'] == record.currency_id.id:
                     tasa=float(item["rate"])
                     x=1/tasa
                     y=float(record.change)
                     record[('is_created_change2')]=x
-                    
                     record[("aux_change")]=y
                     record[("change")]=x
                     
-        return res
+        return record
 
 
