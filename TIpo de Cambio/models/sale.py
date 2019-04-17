@@ -9,7 +9,7 @@ class SaleOrder(models.Model):
     pase=fields.Boolean(string="creado",store=True)
     
     
-    @api.depends('currency_id')
+    @api.onchange('currency_id')
     def CalcularCambio(self):
         for record in self:
         	if (record.tasadecambio!=0 and record.pase==False):
@@ -39,6 +39,7 @@ class SaleOrder(models.Model):
     @api.multi
     def write(self, vals):
         record = super(SaleOrder, self).write(vals)
+        dicts=self.env['res.currency'].sudo().search_read([],[('rate')])
         if vals.get('is_created_change', True):
             vals[("cambio")]=self.cambio    
         return record
