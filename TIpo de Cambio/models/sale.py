@@ -36,12 +36,6 @@ class SaleOrder(models.Model):
                 record[("change")]=x
                     
         return record
-    @api.multi
-    def write(self, vals):
-        record = super(SaleOrder, self).write(vals)
-        dicts=self.env['res.currency'].sudo().search_read([],[('rate')])
-        if vals.get('is_created_change', True):
-            vals[("cambio")]=self.cambio    
-        return record
+    
 
 
