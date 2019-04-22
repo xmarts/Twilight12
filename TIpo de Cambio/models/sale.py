@@ -10,6 +10,8 @@ class SaleOrder(models.Model):
         for record in self:
         	if (record.tasadecambio!=0):
         		record['cambio'] = 1/record.tasadecambio
+		else:
+			pass
 
     @api.multi
     def _prepare_invoice(self):
