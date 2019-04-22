@@ -11,8 +11,8 @@ class PurchaseOrder(models.Model):
         for record in self:
         	if (record.tasadecambio!=0):
         		record['cambiobill'] = 1/record.tasadecambio
-		else:
-			pass
+            else:
+                pass
 
 
 
