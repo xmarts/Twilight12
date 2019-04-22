@@ -6,13 +6,9 @@ class InvoiceCambio(models.Model):
     cambiobill = fields.Float(string='Tipo de Cambio',digits=(12,3),store=True)
 
 
-    @api.onchange('currency_id')
+    @api.onchange('purchase_id')
     def calcularcambio2(self):
-        for record in self:
-        	if (record.tasadecambiobill!=0):
-        		record['cambiobill'] = 1/record.tasadecambiobill
-        	else:
-        		pass
+        self.cambiobill=self.cambiobill
     
    
 
