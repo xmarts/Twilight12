@@ -8,7 +8,7 @@ class InvoiceCambio(models.Model):
 
     @api.onchange('purchase_id')
     def calcularcambio2(self):
-        self.cambiobill=self.cambiobill
+        self.cambiobill=self.purchase_id.cambiobill
     
    
 
