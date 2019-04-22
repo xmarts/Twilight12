@@ -19,7 +19,7 @@ class InvoiceCambio(models.Model):
         resultado=self.env['purchase.order'].sudo().search([('name','=',x)]).cambiobill
          #busqueda en purchase order en donde el nombre sea igual 'porder' y te regesa el '.'cambiobill de la purchase order
         for record in self:
-            if porder:
+            if x:
                 record[("cambiobill")]=float(resultado)  #iguala el tipo de cambio al resultado de la busqueda
             elif (record.tasadecambio!=0):
                 record[('cambiobill')] = 1/record.tasadecambio
