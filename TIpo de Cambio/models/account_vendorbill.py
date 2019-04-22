@@ -8,7 +8,13 @@ class InvoiceCambio(models.Model):
 
     @api.onchange('purchase_id')
     def calcularcambio2(self):
-        self.cambiobill=self.purchase_id.cambiobill
+        for record in self:
+            porder=record.origin #purchase order name 
+            if porder:
+                res=env['purchase.order'].sudo().search([('name','=',porder)]).cambiobill #busqueda en purchase order en donde el nombre sea igual 'porder' y te regesa el '.'cambiobill de la purchase order
+                record[("cambiobill")]=res  #iguala el tipo de cambio al resultado de la busqueda
+            elif (record.tasadecambio!=0):
+                record['cambiobill'] = 1/record.tasadecambio
     
    
 
