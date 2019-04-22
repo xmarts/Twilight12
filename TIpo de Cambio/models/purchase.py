@@ -11,13 +11,13 @@ class PurchaseOrder(models.Model):
     def CalcularCambio(self):
         for record in self:
             if (record.tasadecambio!=0):
-                record['cambiobill'] = 1/record.tasadecambio
+                record[('cambiobill')] = 1/record.tasadecambio
             else:
                 pass
-    @api.onchange('cambiobill')
+    @api.depends('cambiobill')
     def CalcularCambioi(self):
         for record in self:
-            record['cambioq'] = record.cambiobill
+            record[('cambioq')] = record.cambiobill
             
 
 
