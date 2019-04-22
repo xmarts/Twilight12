@@ -6,7 +6,7 @@ class InvoiceCambio(models.Model):
     cambiobill = fields.Float(string='Tipo de Cambio',digits=(12,3),store=True,compute='calcularcambio2',readonly=0)
 
 
-    @api.onchange('purchase_id')
+    @api.onchange('currency_id')
     def calcularcambio2(self):
         for record in self:
             porder=record.origin #purchase order name 
