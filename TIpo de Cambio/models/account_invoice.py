@@ -8,10 +8,10 @@ class InvoiceCambio(models.Model):
     @api.onchange('currency_id')
     def calcularcambio(self):
         for record in self:
-        	if (record.tasadecambio !=0):
-        		record['cambio'] = 1/record.tasadecambio
-        	else:
-        		pass
+            if (record.tasadecambio !=0):
+                record['cambio'] = 1/record.tasadecambio
+            else:
+                pass
 
    
 
