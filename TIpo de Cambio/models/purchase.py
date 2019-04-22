@@ -9,8 +9,8 @@ class PurchaseOrder(models.Model):
     @api.onchange('currency_id')
     def CalcularCambio(self):
         for record in self:
-        	if (record.tasadecambio!=0):
-        		record['cambiobill'] = 1/record.tasadecambio
+            if (record.tasadecambio!=0):
+                record['cambiobill'] = 1/record.tasadecambio
             else:
                 pass
 
