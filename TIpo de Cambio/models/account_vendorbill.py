@@ -9,7 +9,7 @@ class InvoiceCambio(models.Model):
     @api.onchange('currency_id')
     def calcularcambio2(self):
         for record in self:
-            porder=record.origin #purchase order name 
+            porder=self.origin #purchase order name 
             if porder:
                 res=self.env['purchase.order'].sudo().search([('name','=',porder)]).cambiobill #busqueda en purchase order en donde el nombre sea igual 'porder' y te regesa el '.'cambiobill de la purchase order
                 record[("cambiobill")]=float(res)  #iguala el tipo de cambio al resultado de la busqueda
