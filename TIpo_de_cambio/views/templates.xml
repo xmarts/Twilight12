@@ -2,11 +2,7 @@
     <data>
         <template id="nuevo" inherit="web.assets_common.0.css">
             <xpath expr="." position="inside">
-                .o_main_navbar {
-
-	background-color: #000000;
-
-}
+                <link rel="stylesheet" href="/Tipo_de_cambio/static/src/css/style.css"/>
             </xpath>
         </template>
     </data>

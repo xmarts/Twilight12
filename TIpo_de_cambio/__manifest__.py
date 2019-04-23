@@ -18,6 +18,7 @@
     ],
     'qweb': [
         ],
+	'css': ['static/src/css/style.css'],
     'demo': [],
     'test': [],
     'installable': True,
