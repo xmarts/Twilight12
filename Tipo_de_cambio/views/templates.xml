@@ -2,7 +2,7 @@
 <data>
 <template id="assets_backend" name="Custom_header_theme" inherit_id="web.assets_backend">
 <xpath expr=".">
-<link rel="stylesheet" href="/Tipo_de_cambio/static/src/scs/style.css"/>
+<link rel="stylesheet" href="/Tipo_de_cambio/static/src/scs/style.scss"/>
 </xpath>
 </template>
 </data>
