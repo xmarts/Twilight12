@@ -1,8 +1,8 @@
 {
-    'name': 'Xmarts Reporte cotizacion ',
+    'name': 'Xmarts Reporte invoice ',
     'version': '11.0.3',
     'category': "",
-    'description': """ Sales quotation Report 
+    'description': """ invoice Report 
     """,
     'author':'Axel  God',
     'depends': ['base','account'],

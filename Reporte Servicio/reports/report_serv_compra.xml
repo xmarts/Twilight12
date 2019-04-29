@@ -1,0 +1,161 @@
+<odoo>
+<!--REPORTE DE ORDEN DE SERVICIO -->
+<template id="report_servicio_compra ">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="l">
+            <t t-call="web.external_layout">
+                <div class="page">
+                        <div class="row">
+      <div class="col-3">
+        <span>
+          <strong>Cliente:</strong>
+          <br/>
+        </span>
+        <span t-field="docs.partner_id.name"/>
+        <br/>
+        <span>
+          <strong>Observaciones:</strong>
+          <br/>
+        </span>
+        <span/>
+      </div>
+      <div class="col-3"/>
+      <div class="col-3"/>
+      <div class="col-3">
+        <table>
+          <th class="text-beta" style="text-align:center; border-bottom:1px solid lightgrey">
+                       OS NO.  /   NO.EQ
+                    </th>
+          <tr>
+            <td>
+              <span t-field="docs.partner_id.name"/>
+              <t t-foreach="l.order_line" t-as="line">
+                <t t-if="line_index == 0">
+                  <span t-raw="line_size"/>
+                </t>
+              </t>
+            </td>
+          </tr>
+          <th  class="text-beta"  style="text-align:center;border-bottom:1px solid lightgrey">
+                     Fecha
+                </th>
+          <tr>
+            <td>
+              <span t-field="docs.create_date"/>
+            </td>
+          </tr>
+          <th class="text-beta"  style="text-align:center; ">
+                     Origin
+                </th>
+          <tr>
+            <td style="text-align:center;color:#424242 ">
+              <span>texto </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+                        <table class="table table-condensed">
+                             <thead>
+                            
+                                    <tr>
+                                        <th>Contacto</th>
+                                        <th >Telefono</th>
+                                        <th>Correo</th>
+                                           <th>Asunto</th>
+                                    </tr>
+                                    <tr>
+                                            <td class="col-6">
+     
+                                           
+                                           <div t-field="user_id.name" />
+                                            </td>
+                                            <td class="col-6">
+                                           <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}" name="purchase_shipping_address"/>
+                                       </td>
+                                       <td class="col-6">
+                                           <div t-field="user_id.login"/>
+                                             </td>
+                                    </tr>
+
+                                    </thead>
+                    </table>
+                    
+                    <table class=" table table-condensed">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>ID</th>
+                          <th>Codigo</th>
+                          <th>Servicio</th>
+                          <th>Descripcion</th>
+                          <th>NS</th>
+                        </tr>
+
+                      </thead>
+                      <tbody>
+                          <t t-foreach="l.order_line" t-as="line">
+                          <tr>
+                          <td>
+                          <div>
+                            <span t-raw="line_index + 1"/>
+                          </div>
+                          </td>
+                          <td>
+                            <span t-field="line.product_id.id"/>
+                          </td>
+                          <td>
+                          <span t-field="line.product_id.default_code"/>
+                          </td>
+                          <td>
+                            <span t-field="line.product_id.name"/>
+                          </td>
+                           <td>
+                            <span t-field="line.product_id.description"/>
+                          </td>
+                          <td><span t-field="line.lot_ids.name"/>
+                          </td>
+                          </tr>
+				
+                          </t>
+                      </tbody>
+                    </table>
+                     <div class="row">
+                    <div class="col-3">
+                     <table>
+                <tr>
+                    <th style="border-top: 1px solid #875A7B; text-align: center; width:230px">
+                        Recibio
+                    </th> </tr>
+            </table>
+      </div>
+      <div class="col-3"/>
+      <div class="col-3"/>
+      <div class="col-3">
+                   <table>
+                <tr>
+                    <th style="border-top: 1px solid #875A7B; text-align: center">
+                        Firma del cliente
+                    </th> </tr>
+            </table>
+            </div> </div>
+
+           </div>         
+          </t>
+        </t>
+    </t>
+</template>
+
+
+    <report
+    id="report_servicio_compra"
+    model="purchase.order"
+    string="Servicio"
+    report_type="qweb-pdf"
+    name="Reporte Servicio.report_servicio_compra"
+    file="report_servicio_compra"
+    attachment_use="False"
+    
+/>
+
+</odoo>
