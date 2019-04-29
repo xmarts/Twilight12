@@ -14,10 +14,10 @@ table.info1 th{
 table.info1 td {
   border: 1px solid #dddddd;
   text-align:center;
-  padding-top: 5px;
-  padding-right: 10px;
-  padding-bottom: 5px;
-  padding-left: 10px;
+  padding-top: 2px;
+  padding-right: 4px;
+  padding-bottom: 2px;
+  padding-left: 4px;
 }
 div#dire strong,div#medio strong{  color: #714D60;
 font-size:110%;
@@ -45,15 +45,21 @@ div#informations &gt;div{
                     <br/>
                 </span>
                 <span t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True}"/>
+
+
                 <span>
-                    <strong>Teléfono:</strong>
+                          <strong>Teléfono:</strong>
+                   
                 </span>
                 <br/>
                 <span t-field="docs.partner_id.phone"/>
+
+
                 <br/>
                 <t t-if="o.partner_id.vat" class="mt16">
                     <strong>
                         <t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: 
+                    
                     
                     
                     
@@ -64,14 +70,13 @@ div#informations &gt;div{
                 </t>
             </div>
             <div class="col-3" id="medio"/>
-            <div class="col-3"/>
-            <div class="col-3">
+            <div class="col-3"  style="max-width: 300px">
                 <table class="info1">
                     <th>
                        Folio Factura
                     </th>
                     <tr>
-                        <td style="max-width: 90px">
+                        <td>
                             <span t-field="docs.partner_id.name"/>
                         </td>
                     </tr>
@@ -79,8 +84,11 @@ div#informations &gt;div{
                      Lugar y Fecha
                 </th>
                     <tr>
-                        <td>
-                            <span t-field="docs.company_id.zip"/> - <span t-field="docs.company_id.country_id"/>,<span t-field="docs.company_id.city"/> <span t-field="docs.create_date"/>
+                        <td >
+                            <span t-field="docs.company_id.zip"/> - 
+                            <span t-field="docs.company_id.country_id"/>,
+                            <span t-field="docs.company_id.city"/>
+                            <span t-field="docs.create_date" t-options="{'widget': 'date'}"/>
                         </td>
                     </tr>
                     <th>
@@ -137,9 +145,7 @@ div#informations &gt;div{
     <xpath expr="/t/t/div/table/thead/tr/th[6]" position="replace">
         <th>Precio</th>
     </xpath>
-    <xpath expr="/t/t/div/table/thead/tr/th[7]" position="replace">
-        <th>Importe</th>
-    </xpath>
+    <xpath expr="/t/t/div/table/thead/tr/th[8]" position="replace"></xpath>
     <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[1]" position="replace">
         <td>
             <span t-raw="line_index + 1"/>
@@ -170,6 +176,7 @@ div#informations &gt;div{
             <span t-field="line.price_unit"/>
         </td>
     </xpath>
+    <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[8]" position="replace"></xpath>
     <xpath expr="//div[@name='reference']" position="after">
         <div t-att-class="o_grid_layout">
             <strong>Condiciones de pago:</strong>
@@ -178,7 +185,13 @@ div#informations &gt;div{
         </div>
     </xpath>
     <xpath expr="//div[@id='total']/div[1]" position="before">
-        <img src="/Reporte_invoice/static/src/img/banco.png" style="max-height: 170px;"/>
+        <img src="/Reporte_invoice/static/src/img/banco.png" style="max-height: 150px;position: fixed;"/>
+    </xpath>
+     <xpath expr="//div[@id='total']" position="after">
+        <div  style="height: 50px"/>
+    </xpath>
+    <xpath expr="/t[1]/t[1]/div[2]/p[3]/span[1]" position="replace">
+        <span t-field="o.payment_term_id.note" hidden="True"/>
     </xpath>
 </template>
 </odoo>
