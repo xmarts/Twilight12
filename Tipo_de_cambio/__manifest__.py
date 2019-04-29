@@ -11,7 +11,7 @@
 	'views/invoice_view.xml',
 	'views/invoice_view_bill.xml',
 	'views/purchase_order_view .xml',
-	'views/templates.xml',
+
 	'report/reporte_invoice.xml',
 	'report/reporte_sale.xml',
 	  
