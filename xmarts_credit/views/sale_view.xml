@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form View  -->
+    <record id="Payment_Uso_inv" model="ir.ui.view">
+    <field name="name">Sale_order_credit_custom</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale..view_order_form"/>
+    <field name="arch" type="xml">
+ 
+<xpath expr="//field[@name='permitted_credit_limit']" position="before">
+    <field name="credito_disponible" force_save="1" widget="monetary"/>
+</xpath>
+    </field>
+</record>
+
+</odoo>
