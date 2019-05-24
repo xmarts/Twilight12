@@ -4,7 +4,7 @@
     'category': "",
     'description': """ Sales quotation Report 
     """,
-    'author':'Axel indian God',
+    'author':'Axel',
     'depends': ['base','sale'],
     'data': [
 	
