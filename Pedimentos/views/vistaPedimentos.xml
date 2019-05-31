@@ -5,7 +5,7 @@
     <!-- Tree View of Customer-->
     <record id="pedimento_tree_view" model="ir.ui.view">
         <field name="name">pedimento.tree.view</field>
-        <field name="model">pedimento</field>
+        <field name="model">pedimentos</field>
         <field name="arch" type="xml">
             <tree string="Informacion de pedimento">
                 <field name="name"/>
