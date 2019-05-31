@@ -5,7 +5,7 @@
     <!-- Tree View of Customer-->
     <record id="pedimento_tree_view" model="ir.ui.view">
         <field name="name">pedimento.tree.view</field>
-        <field name="model">pedimentos</field>
+        <field name="model">purchase.order</field>
         <field name="arch" type="xml">
             <tree string="Informacion de pedimento">
                 <field name="name"/>
@@ -46,7 +46,7 @@
     <!-- Form View Of Customer  -->
     <record id="pedimento_form_view" model="ir.ui.view">
         <field name="name">pedimento.form.view</field>
-        <field name="model">pedimentos</field>
+        <field name="model">purchase.order</field>
         <field name="arch" type="xml">
             <form>
              <group>
@@ -61,7 +61,7 @@
 
     <record id="custom_action" model="ir.actions.act_window">
         <field name="name">pedimentos</field>
-        <field name="res_model">pedimentos</field>
+        <field name="res_model">purchase.order</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">

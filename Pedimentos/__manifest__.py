@@ -23,7 +23,7 @@
     'data': [
 
         'views/vistaPedimentos.xml',
-'security/ir.model.access.csv',
+
 
 
        
