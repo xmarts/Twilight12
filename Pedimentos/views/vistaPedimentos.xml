@@ -3,11 +3,11 @@
 
 
     <!-- Tree View of Customer-->
-    <record id="pedimientos_tree_view" model="ir.ui.view">
-        <field name="name">pedimientos.tree.view</field>
-        <field name="model">pedimientos</field>
+    <record id="pedimento_tree_view" model="ir.ui.view">
+        <field name="name">pedimento.tree.view</field>
+        <field name="model">pedimento</field>
         <field name="arch" type="xml">
-            <tree string="Informacion de Categorias">
+            <tree string="Informacion de pedimento">
                 <field name="name"/>
 
             </tree>
@@ -44,9 +44,9 @@
     </record>
   -->
     <!-- Form View Of Customer  -->
-    <record id="pedimientos_form_view" model="ir.ui.view">
-        <field name="name">pedimientos.form.view</field>
-        <field name="model">categorias</field>
+    <record id="pedimento_form_view" model="ir.ui.view">
+        <field name="name">pedimento.form.view</field>
+        <field name="model">pedimentos</field>
         <field name="arch" type="xml">
             <form>
              <group>
@@ -60,8 +60,8 @@
     <!--   Define custom action -->
 
     <record id="custom_action" model="ir.actions.act_window">
-        <field name="name">Pedimientos</field>
-        <field name="res_model">pedimientos</field>
+        <field name="name">pedimentos</field>
+        <field name="res_model">pedimentos</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
