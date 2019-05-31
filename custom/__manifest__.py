@@ -1,5 +1,5 @@
 {
-    'name': 'Sale Invoice Odoo Studio Customization',
+    'name': 'Custom link',
     'version': '11.0.3',
     'category': 'Sales Management',
     'description': """ Add link to product and sale views

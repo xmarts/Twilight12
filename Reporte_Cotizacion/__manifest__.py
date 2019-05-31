@@ -4,8 +4,8 @@
     'category': "",
     'description': """ Sales quotation Report 
     """,
-    'author':'Axel indian God',
-    'depends': ['base','sale'],
+    'author':'Axel',
+    'depends': ['base','sale','custom'],
     'data': [
 	
 	"views/Sale_signature.xml",

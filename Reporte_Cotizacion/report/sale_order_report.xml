@@ -61,7 +61,7 @@
 		<xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[4]"
 			position="replace">
 			<td>
-				<span t-field="line.product_id.name" />
+				<span t-field="line.product_id.name"/><a t-att-href="line.x_link">link</a>
 			</td>
 		</xpath>
 		<xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[5]"
