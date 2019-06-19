@@ -2,7 +2,9 @@ from odoo import api, fields, models, _
 
 class SaleSignature(models.Model):
 	_inherit = 'sale.order.line'
-	product_uom_qty = fields.Float(default=1.0)
+	def get_sale_order_line_multiline_description_sale(self, product):
+
+		return "PRUEBA"
 	
 
 
