@@ -13,7 +13,7 @@ class SaleOrder(models.Model):
         self.phone = self.partner_id.phone
         self.country_id = self.partner_id.country_id.id
         
-    @api.onchange('email','phone')
+    @api.onchange('email','phone','country_id')
     def onchange_phone_email(self):
         if self.partner_id:
             self.partner_id.write({'email': self.email,'phone':self.phone,'country_id':self.country_id.id})
