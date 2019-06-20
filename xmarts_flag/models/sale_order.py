@@ -1,10 +1,10 @@
-from odoo import api, fields, models, _
+from odoo import api, fields, models, _	
 
-class saleorder(models.Model):
+class SaleOrder(models.Model):
 	_inherit = 'sale.order'
 
-	boton1=fields.Boolean(default=True)
-	boton2=fields.Boolean(default=False)
+	boton1=fields.Boolean(default=True,compute="switch2")
+	boton2=fields.Boolean(default=False,compute="switch2")
 
 	@api.onchange('boton2','boton1')
 	def switch2(self):
