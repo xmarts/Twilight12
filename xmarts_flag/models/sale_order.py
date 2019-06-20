@@ -8,8 +8,10 @@ class SaleOrder(models.Model):
 
 	@api.onchange('boton2','boton1')
 	def switch2(self):
-		self.boton1= not self.boton1
-		self.boton2= not self.boton2
+		for record in self:
+
+			record[("boton1")]= not record.boton1
+			record[("boton2")]= not record.boton2
 	
 
 
