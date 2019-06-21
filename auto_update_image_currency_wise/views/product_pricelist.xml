@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="add_country_flag_product_pricelist_form_view" model="ir.ui.view">
+            <field name="name">add.country.flag.product.pricelist.form.inherit.product</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='currency_id']" position="replace">
+                    <field name="currency_id" widget="radio" groups="base.group_multi_currency"/>
+                 </xpath>
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="image_small" widget="image" class="oe_avatar"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

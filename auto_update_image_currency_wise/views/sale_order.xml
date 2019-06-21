@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="add_country_flag_sale_order_form_view" model="ir.ui.view">
+            <field name="name">add.country.flag.sale.order.form.inherit.product</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='pricelist_id']" position="replace">
+    <div >
+        <label for="pricelist_id" style="font-weight: 900;" string="Tarifa" />
+        <span > 
+        </span>
+           
+      
+    </div>
+    <span>
+        <span > 
+    
+        <td style="width:150px;">
+                <field name="pricelist_id" string="none" widget="Image" domain="[(&quot;currency_id.id&quot;,&quot;=&quot;,2)]" options='{"horizontal": 0}'  groups="base.group_multi_currency"> </field>      
+              </td>
+            <td class="oe_read_only">
+                <field name="image_small" class="oe_inline"  widget="image"/>
+            </td>
+            <td class="oe_edit_only">
+		<img src="/auto_update_image_currency_wise/static/src/img/banco.png" class="oe_inline" style="max-height: 24px;max-width: 24px;"/>
+                <br></br>
+		<img src="/auto_update_image_currency_wise/static/src/img/banco.png" class="oe_inline" style="max-height: 24px;max-width: 24px;"/>
+            </td>
+            
+        </span>
+    </span>
+             
+                
+               
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
