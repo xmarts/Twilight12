@@ -24,9 +24,9 @@
                 <field name="image_small" class="oe_inline"  widget="image"/>
             </td>
             <td class="oe_edit_only">
-		<img src="/auto_update_image_currency_wise/static/src/img/banco.png" class="oe_inline" style="max-height: 24px;max-width: 24px;"/>
+		<img src="/auto_update_image_currency_wise/static/src/img/mxn.png" class="oe_inline" style="max-height: 24px;max-width: 24px;"/>
                 <br></br>
-		<img src="/auto_update_image_currency_wise/static/src/img/banco.png" class="oe_inline" style="max-height: 24px;max-width: 24px;"/>
+		<img src="/auto_update_image_currency_wise/static/src/img/usd.png" class="oe_inline" style="max-height: 24px;max-width: 24px;"/>
             </td>
             
         </span>

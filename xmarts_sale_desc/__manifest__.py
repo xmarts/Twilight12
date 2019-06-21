@@ -1,5 +1,5 @@
 {
-    'name': 'Xmarts auto qty  1',
+    'name': 'Xmarts sales description',
     'version': '11.0.3',
     'category': "",
     'description': """ Set qty = 1 when selecting a product in an order line.

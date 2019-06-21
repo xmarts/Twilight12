@@ -15,5 +15,5 @@
         'views/product_pricelist.xml',
         'views/res_currency.xml',
         'views/sale_order.xml',
-    ],
+    ],"images":['static/src/img/usd.png','static/src/img/mxn.png'],
 }
