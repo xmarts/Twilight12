@@ -18,7 +18,7 @@
         <span > 
     
         <td style="width:150px;">
-                <field name="pricelist_id" string="none" widget="Image" domain="[(&quot;currency_id.id&quot;,&quot;=&quot;,2)]" options='{"horizontal": 0}'  groups="base.group_multi_currency"> </field>      
+                <field name="pricelist_id" string="none" widget="radio" options='{"horizontal": 0}'  groups="base.group_multi_currency"> </field>      
               </td>
             <td class="oe_read_only">
                 <field name="image_small" class="oe_inline"  widget="image"/>

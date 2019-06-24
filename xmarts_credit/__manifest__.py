@@ -5,9 +5,9 @@
     'description': """ Muestra la cantidad disponible en sale order
     """,
     'author':'Axel',
-    'depends': ['sale','credit_limit_alert'],
+    'depends': ['product'],
     'data': [
-	'views/sale_view.xml',
+
 
 
 	  

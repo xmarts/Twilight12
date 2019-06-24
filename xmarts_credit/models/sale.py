@@ -1,16 +1,28 @@
 from odoo import api, fields, models, _
 
-class AccountInvoice(models.Model):
-	_inherit = 'sale.order'
-	
-	credito_disponible = fields.Integer(string="Credito disponible" ,compute="_compute_credit")
+class stockmovelinesp(models.Model):
+	_inherit = 'stock.move.line'
 
-	@api.onchange('partner_id')
-	def _compute_credit(self):
+
+	@api.onchange('product_id')
+	def _compute_transito(self):
 		for record in self:
-			x=self.env['res.partner'].sudo().search([('name','=',self.partner_id.name)]).credit_available
-			record[("credito_disponible")]=x
-			
+			if record.done_move !=True and record.location_dest_id.id==13:
+				producttemplate._compute_transito_product()
+
+
+class producttemplate(models.Model):
+	_inherit = 'product.template'
+
+	cantidad_transito = fields.Char(string="cost" ,store=True,readonly=False)
+
+	@api.onchange('product_id')
+	def _compute_transito_product(self):
+		for record in self:
+			x = self.env['res.partner'].sudo().search([('product_id.id', '=', record.id)])
+			record[("cantidad_transito")] = x
+
+
 	
 
 
