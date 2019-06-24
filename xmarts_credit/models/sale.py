@@ -8,7 +8,7 @@ class stockmovelinesp(models.Model):
 	def _compute_transito(self):
 		for record in self:
 			if record.done_move !=True and record.location_dest_id.id==13:
-				producttemplate._compute_transito_product()
+				producttemplate._compute_transito_product(self)
 
 
 class producttemplate(models.Model):
@@ -16,7 +16,6 @@ class producttemplate(models.Model):
 
 	cantidad_transito = fields.Char(string="cost" ,store=True,readonly=False)
 
-	@api.onchange('product_id')
 	def _compute_transito_product(self):
 		for record in self:
 			x = self.env['stock.move.line'].sudo().search([('product_id.id', '=', record.id)])
