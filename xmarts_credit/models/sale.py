@@ -16,6 +16,7 @@ class producttemplate(models.Model):
 
 	cantidad_transito = fields.Char(string="cost" ,store=True,readonly=False)
 
+	@api.multi
 	def _compute_transito_product(self):
 		for record in self:
 			x = self.env['stock.move.line'].sudo().search([('product_id', '=', record.id)])
