@@ -8,7 +8,7 @@ class stockmovelinesp(models.Model):
 	def _compute_transito(self):
 		for record in self:
 			if record.done_move !=True and record.location_dest_id.id==13:
-				producttemplate._compute_transito_product(self)
+				self.env['product.template']._compute_transito_product()
 
 
 class producttemplate(models.Model):
