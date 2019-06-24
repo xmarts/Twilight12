@@ -19,7 +19,7 @@ class producttemplate(models.Model):
 	@api.onchange('product_id')
 	def _compute_transito_product(self):
 		for record in self:
-			x = self.env['res.partner'].sudo().search([('product_id.id', '=', record.id)])
+			x = self.env['stock.move.line'].sudo().search([('product_id.id', '=', record.id)])
 			record[("cantidad_transito")] = x
 
 
