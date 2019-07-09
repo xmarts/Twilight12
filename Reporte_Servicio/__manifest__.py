@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Xmarts Reporte Servicio ',
+    'name': 'Xmarts Reporte Servicio 3',
     'version': '11.0.3',
     'category': "",
     'description': """ Sales quotation Report 
@@ -9,8 +9,8 @@
     'depends': ['base','sale_order_multi_lot_selection_v4','sale','purchase'],
     'data': [
 	
-	"reports/report_servicio.xml",
-"reports/report_servicio_compra.xml",
+	"reports/report_serv.xml",
+"reports/report_serv_compra.xml",
 "reports/reporte.xml",
 	  
     ],
